@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tweet_details"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="br.senac.rn.view.TweetDetails">
+
+    <TextView
+        android:text="Login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/login"
+        android:textColor="#0000FF"
+        android:textSize="20dp" />
+
+    <TextView
+        android:text="Tweet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tweet"
+        android:textSize="15dp" />
+
+    <TextView
+        android:text="Data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/data"
+        android:textSize="10dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|center" >
+
+        <Button
+            android:text="Voltar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/voltar" />
+
+    </RelativeLayout>
+
+</LinearLayout>
+
