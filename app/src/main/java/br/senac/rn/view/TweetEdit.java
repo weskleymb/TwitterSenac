@@ -11,7 +11,7 @@ import br.senac.rn.model.Tweet;
 
 public class TweetEdit extends Activity {
 
-    private TextView tvLogin;
+    private TextView tvLogin, tvData;
     private EditText etTweet;
     private Button btSalvar, btVoltar;
     private Tweet tweet;
@@ -31,6 +31,9 @@ public class TweetEdit extends Activity {
 
         tvLogin = (TextView) findViewById(R.id.edit_autor);
         tvLogin.setText(tweet.getAutor().getLogin());
+
+        tvData = (TextView) findViewById(R.id.edit_data);
+        tvData.setText(tweet.getDataFormatada());
 
         etTweet = (EditText) findViewById(R.id.edit_tweet);
         etTweet.setText(tweet.getTweet());
@@ -59,7 +62,7 @@ public class TweetEdit extends Activity {
         Intent intent = new Intent();
         intent.putExtra("tweet", tweet);
         setResult(RESULT_OK, intent);
-        finish();
+        onBackPressed();
     }
 
 }

@@ -105,12 +105,12 @@ public class TwitterActivity extends Activity {
 
     @Override
     protected void onActivityResult(int request, int result, Intent intent) {
-        if (request == 1 && result == RESULT_OK) {
+        if (request == 1) {
             alterarFoto(intent);
-        } else if (request == 2 && result == RESULT_OK) {
+        } else if (request == 2) {
             Tweet tweet = (Tweet) intent.getSerializableExtra("tweet");
-            int posicao = tweets.indexOf(tweet);
-            tweets.set(posicao, tweet);
+            int index = tweets.indexOf(tweet);
+            tweets.set(index, tweet);
             adapter.notifyDataSetChanged();
         }
     }
