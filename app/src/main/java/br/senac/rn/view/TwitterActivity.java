@@ -67,6 +67,16 @@ public class TwitterActivity extends Activity {
                 startActivity(intent);
             }
         });
+        lvTweets.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Tweet tweet = tweets.get(position);
+                Intent intent = new Intent(TwitterActivity.this, TweetEdit.class);
+                intent.putExtra("tweet", tweet);
+                startActivityForResult(intent, 2);
+                return true;
+            }
+        });
     }
 
     private void tweetar() {
@@ -95,8 +105,13 @@ public class TwitterActivity extends Activity {
 
     @Override
     protected void onActivityResult(int request, int result, Intent intent) {
-        if (request == 1) {
+        if (request == 1 && result == RESULT_OK) {
             alterarFoto(intent);
+        } else if (request == 2 && result == RESULT_OK) {
+            Tweet tweet = (Tweet) intent.getSerializableExtra("tweet");
+            int posicao = tweets.indexOf(tweet);
+            tweets.set(posicao, tweet);
+            adapter.notifyDataSetChanged();
         }
     }
 

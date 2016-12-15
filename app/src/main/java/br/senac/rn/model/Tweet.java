@@ -7,6 +7,7 @@ import java.util.Locale;
 
 public class Tweet implements Serializable, Comparable<Tweet> {
 
+    private int id;
     private Autor autor;
     private String tweet;
     private Date data;
