@@ -7,7 +7,6 @@ import java.util.Locale;
 
 public class Tweet implements Serializable, Comparable<Tweet> {
 
-//    private int id;
     private Autor autor;
     private String tweet;
     private Date data;
@@ -62,7 +61,7 @@ public class Tweet implements Serializable, Comparable<Tweet> {
 
     @Override
     public boolean equals(Object o) {
-        return ((Tweet) o).getData().equals(this.data);
+        return  data.equals(((Tweet) o).data);
     }
 
 }

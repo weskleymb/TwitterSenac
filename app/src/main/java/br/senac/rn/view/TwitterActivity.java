@@ -20,6 +20,9 @@ import br.senac.rn.model.Tweet;
 
 public class TwitterActivity extends Activity {
 
+    public static final int EDITAR = 2;
+    public static final int FOTO = 1;
+
     private EditText etTweet;
     private Button btTweetar;
     private ListView lvTweets;
@@ -73,7 +76,7 @@ public class TwitterActivity extends Activity {
                 Tweet tweet = tweets.get(position);
                 Intent intent = new Intent(TwitterActivity.this, TweetEdit.class);
                 intent.putExtra("tweet", tweet);
-                startActivityForResult(intent, 2);
+                startActivityForResult(intent, EDITAR);
                 return true;
             }
         });
@@ -95,7 +98,7 @@ public class TwitterActivity extends Activity {
 
     private void tirarFoto() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent, 1);
+        startActivityForResult(intent, FOTO);
     }
 
     private void alterarFoto(Intent intent) {
@@ -105,9 +108,9 @@ public class TwitterActivity extends Activity {
 
     @Override
     protected void onActivityResult(int request, int result, Intent intent) {
-        if (request == 1) {
+        if (request == FOTO) {
             alterarFoto(intent);
-        } else if (request == 2) {
+        } else if (request == EDITAR) {
             Tweet tweet = (Tweet) intent.getSerializableExtra("tweet");
             int index = tweets.indexOf(tweet);
             tweets.set(index, tweet);
